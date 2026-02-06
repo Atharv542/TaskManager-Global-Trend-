@@ -42,7 +42,7 @@ export default function TaskForm() {
           required
         />
 
-        <button className="btn mt-3">Save</button>
+        <button className="btn mt-3 cursor-pointer">Save</button>
       </form>
     </div>
   );
