@@ -35,7 +35,7 @@ export default function TaskForm() {
         />
 
         <textarea
-          className="input border-2 boder-white mt-3"
+          className="input border-2 boder-white mt-3 resize-none"
           placeholder="Enter description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
