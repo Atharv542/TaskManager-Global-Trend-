@@ -1,7 +1,7 @@
 import axios from "axios";
 import {useState} from "react";
 import toast from "react-hot-toast";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 export default function Login(){
   const [email,setEmail]=useState("");
@@ -23,6 +23,12 @@ export default function Login(){
         <input className="w-full p-2 mb-3 bg-slate-800" placeholder="Email" onChange={e=>setEmail(e.target.value)}/>
         <input type="password" className="w-full p-2 mb-3 bg-slate-800" placeholder="Password" onChange={e=>setPassword(e.target.value)}/>
         <button className="bg-blue-600 w-full p-2 rounded">Login</button>
+        <p className="text-sm text-gray-400 text-center">
+          New user?{" "}
+          <Link to="/register" className="text-blue-400 hover:underline">
+            Create account
+          </Link>
+        </p>
       </form>
     </div>
   )
