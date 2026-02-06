@@ -22,27 +22,27 @@ export default function TaskForm() {
   };
 
   return (
-    <div className="p-6 flex justify-center">
+    <div className="p-6 flex justify-center mt-40">
       <form className="bg-slate-900 p-6 rounded w-full max-w-md" onSubmit={submit}>
-        <h2 className="text-white mb-4">Create Task</h2>
+        <h2 className="text-white mb-4 text-center">Create Task</h2>
 
         <input
-          className="input"
-          placeholder="Title"
+          className="input border-2 border-white mt-5"
+          placeholder="Enter title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           required
         />
 
         <textarea
-          className="input"
-          placeholder="Description"
+          className="input border-2 boder-white mt-3"
+          placeholder="Enter description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           required
         />
 
-        <button className="btn">Save</button>
+        <button className="btn mt-3">Save</button>
       </form>
     </div>
   );
