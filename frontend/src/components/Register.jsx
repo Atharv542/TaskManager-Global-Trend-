@@ -9,13 +9,28 @@ export default function Register(){
   const [password,setPassword]=useState("");
   const nav=useNavigate();
 
-  const submit=async e=>{
-    e.preventDefault();
-    const res = await axios.post("https://taskmanager-global-trend.onrender.com/api/auth/register",{name,email,password});
-    localStorage.setItem("token",res.data.token);
+ const submit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const res = await axios.post(
+      "https://taskmanager-global-trend.onrender.com/api/auth/register",
+      { name, email, password }
+    );
+
+    localStorage.setItem("token", res.data.token);
+    toast.success("Registered successfully");
     nav("/tasks");
-    toast.success("Registered successfully")
-  };
+
+  } catch (err) {
+    if (err.response?.status === 409) {
+      toast.error("User already exists. Please login.");
+    } else {
+      toast.error("Registration failed");
+    }
+  }
+};
+
 
   return(
     <div className="min-h-screen flex justify-center items-center bg-slate-950 p-4">
