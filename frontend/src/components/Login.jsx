@@ -10,7 +10,7 @@ export default function Login(){
 
   const submit=async e=>{
     e.preventDefault();
-    const res = await axios.post("http://localhost:5000/api/auth/login",{email,password});
+    const res = await axios.post("https://taskmanager-global-trend.onrender.com/api/auth/login",{email,password});
     localStorage.setItem("token",res.data.token);
     nav("/tasks");
     toast.success("Logged in Successfully")

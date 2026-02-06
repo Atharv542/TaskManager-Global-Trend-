@@ -10,7 +10,7 @@ export default function TaskEdit(){
   const [description,setDescription]=useState("");
 
   useEffect(()=>{
-    axios.get(`http://localhost:5000/api/tasks/${id}`,{headers:{authorization:localStorage.getItem("token")}})
+    axios.get(`https://taskmanager-global-trend.onrender.com/api/tasks/${id}`,{headers:{authorization:localStorage.getItem("token")}})
     .then(r=>{
       setTitle(r.data.title);
       setDescription(r.data.description);
@@ -18,7 +18,7 @@ export default function TaskEdit(){
   },[]);
 
   const save=async()=>{
-    await axios.put(`http://localhost:5000/api/tasks/${id}`,{title,description},{
+    await axios.put(`https://taskmanager-global-trend.onrender.com/api/tasks/${id}`,{title,description},{
       headers:{authorization:localStorage.getItem("token")}
     });
     nav("/tasks");

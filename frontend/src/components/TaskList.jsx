@@ -9,7 +9,7 @@ export default function TaskList() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/tasks", {
+      .get("https://taskmanager-global-trend.onrender.com/api/tasks", {
         headers: { authorization: localStorage.getItem("token") },
       })
       .then((r) => setTasks(r.data));
@@ -17,7 +17,7 @@ export default function TaskList() {
 
   const del = (id) => {
     axios
-      .delete(`http://localhost:5000/api/tasks/${id}`, {
+      .delete(`https://taskmanager-global-trend.onrender.com/api/tasks/${id}`, {
         headers: { authorization: localStorage.getItem("token") },
       })
       .then(() => setTasks(tasks.filter((t) => t._id !== id)));
@@ -30,7 +30,6 @@ export default function TaskList() {
         Tasks Created
       </h1>
 
-      {/* ✅ IF NO TASKS */}
       {tasks.length === 0 ? (
         <div className="flex flex-col items-center mt-16 gap-4">
           <p className="text-gray-400 text-lg">
@@ -45,7 +44,6 @@ export default function TaskList() {
           </button>
         </div>
       ) : (
-        /* ✅ SHOW TASKS */
         <div className="p-6 grid gap-4 md:grid-cols-4">
           {tasks.map((t) => (
             <div key={t._id} className="card mt-10">

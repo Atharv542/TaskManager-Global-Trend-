@@ -7,7 +7,7 @@ export default function TaskView(){
   const [task,setTask]=useState({});
 
   useEffect(()=>{
-    axios.get(`http://localhost:5000/api/tasks/${id}`,{headers:{authorization:localStorage.getItem("token")}})
+    axios.get(`https://taskmanager-global-trend.onrender.com/api/tasks/${id}`,{headers:{authorization:localStorage.getItem("token")}})
     .then(r=>setTask(r.data));
   },[]);
 

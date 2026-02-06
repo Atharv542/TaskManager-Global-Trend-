@@ -18,6 +18,7 @@ router.get("/", async(req,res)=>{
   res.json(tasks);
 });
 
+//View
 router.get("/:id", async (req, res) => {
   const task = await Task.findOne({
     _id: req.params.id,

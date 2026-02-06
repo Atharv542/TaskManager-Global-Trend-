@@ -8,7 +8,7 @@ export default function TaskForm(){
 
   const submit=async e=>{
     e.preventDefault();
-    await axios.post("http://localhost:5000/api/tasks",
+    await axios.post("https://taskmanager-global-trend.onrender.com/api/tasks",
       {title,description},
       {headers:{authorization:localStorage.getItem("token")}}
     );
