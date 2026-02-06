@@ -8,13 +8,30 @@ export default function Login(){
   const [password,setPassword]=useState("");
   const nav = useNavigate();
 
-  const submit=async e=>{
-    e.preventDefault();
-    const res = await axios.post("https://taskmanager-global-trend.onrender.com/api/auth/login",{email,password});
-    localStorage.setItem("token",res.data.token);
+const submit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const res = await axios.post(
+      "https://taskmanager-global-trend.onrender.com/api/auth/login",
+      { email, password }
+    );
+
+    localStorage.setItem("token", res.data.token);
+    toast.success("Logged in Successfully");
     nav("/tasks");
-    toast.success("Logged in Successfully")
+
+  } catch (err) {
+    if (err.response?.status === 404) {
+      toast.error("User does not exist");
+    } else if (err.response?.status === 401) {
+      toast.error("Wrong password");
+    } else {
+      toast.error("Login failed");
+    }
   }
+};
+
 
   return(
     <div className="min-h-screen flex items-center justify-center bg-slate-950 text-white p-4">
