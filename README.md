@@ -61,6 +61,6 @@ This application allows users to register, log in, create tasks, update their st
 
 ### 1️ Clone Repository
 
-git clone https://github.com/aAtharv542/TaskManager-Global-Trend.git
+git clone https://github.com/Atharv542/TaskManager-Global-Trend-.git
 cd task-manager
 
